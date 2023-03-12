@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Home Page</title>
+</head>
+
+<body>
+    {% if yt_video %}
+        <h2> All Youtube Videos </h2>
+            {% for videos in yt_video %}
+                <ul>
+                    <a href="{% url 'youtube_clone:detail' videos.id %}"> {{ videos.title}} </a>
+                    <li>{{ videos.totalViews }} - Views</li>
+                    <li>{{ videos.likes }} - Likes</li>
+                </ul>
+            {% endfor %}
+
+    {% else %}
+        <strong> There is no Video</strong>
+    {% endif %}
+</body>
+</html>

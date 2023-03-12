@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ video_details.title }}</title>
+</head>
+<body>
+    <h1>{{ video_details.title }}</h1>
+    <h4>Uploaded By -
+    <a href="{% url 'youtube_clone:channel' channel_details.id  %}"> {{ channel_details.name}} </a></h4>
+    <ul>
+        <li>Description - {{ video_details.description }}</li>
+        <li>Likes - {{ video_details.likes }}</li>
+        <li>Views - {{ video_details.totalViews }}</li>
+     </ul>
+        <p><u>Comments</u></p>
+        {% for items in comments %}
+               <p>{{ items.text }} - by {{ items.client.username }}</p>
+            {% endfor %}
+
+</body>
+</html>

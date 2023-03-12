@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Channel</title>
+</head>
+<body>
+    <p>{{ channel_details.name }}</p>
+    <ul>
+        <li>{{ channel_details.description }}</li>
+        <li>Total Subscribers - {{ channel_details.subscription }}</li>
+        <li>This Channel is created by {{ channel_details.client.username }}</li>
+     </ul>
+    <h4>Videos by {{ channel_details.client.username }}</h4>
+        {% for videos in yt_video %}
+                <ul>
+                    <a href="{% url 'youtube_clone:detail' videos.id %}"> {{ videos.title}} </a>
+                    <li>{{ videos.totalViews }} - Views</li>
+                    <li>{{ videos.likes }} - Likes</li>
+                </ul>
+            {% endfor %}
+</body>
+</html>
